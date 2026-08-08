@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Electro Study | Learn. Practice. Achieve.</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<!-- ================= LOGIN MODAL ================= -->
+
+<div class="login-overlay" id="loginOverlay">
+
+    <div class="login-modal">
+
+        <button class="close-login" id="closeLogin">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <div class="login-logo">
+            <i class="fa-solid fa-bolt"></i>
+        </div>
+
+        <h2 id="loginTitle">Welcome Back!</h2>
+
+        <p id="loginSubtitle">
+            Login to continue your learning journey.
+        </p>
+
+
+        <!-- SIGN UP NAME -->
+
+        <div class="input-box signup-only">
+
+            <i class="fa-regular fa-user"></i>
+
+            <input
+                type="text"
+                id="signupName"
+                placeholder="Your Name"
+            >
+
+        </div>
+
+
+        <div class="input-box">
+
+            <i class="fa-regular fa-envelope"></i>
+
+            <input
+                type="email"
+                id="loginEmail"
+                placeholder="Email Address"
+            >
+
+        </div>
+
+
+        <div class="input-box">
+
+            <i class="fa-solid fa-lock"></i>
+
+            <input
+                type="password"
+                id="loginPassword"
+                placeholder="Password"
+            >
+
+            <button class="show-password" id="showPassword">
+                <i class="fa-regular fa-eye"></i>
+            </button>
+
+        </div>
+
+
+        <button class="login-submit" id="loginSubmit">
+            Login
+            <i class="fa-solid fa-arrow-right"></i>
+        </button>
+
+
+        <p class="login-switch">
+
+            <span id="switchText">
+                Don't have an account?
+            </span>
+
+            <button id="switchMode">
+                Create Account
+            </button>
+
+        </p>
+
+
+        <div class="login-message" id="loginMessage"></div>
+
+    </div>
+
+</div>
+<!-- ================= SEARCH MODAL ================= -->
+
+<div class="search-overlay" id="searchOverlay">
+
+    <div class="search-modal">
+
+        <button class="close-search" id="closeSearch">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <div class="search-icon">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+
+        <h2>Search Electro Study</h2>
+
+        <p>
+            Find classes, subjects, chapters and study material.
+        </p>
+
+        <div class="search-input-box">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input
+                type="text"
+                id="studySearch"
+                placeholder="Search anything..."
+                autocomplete="off"
+            >
+
+            <button id="searchSubmit">
+                Search
+            </button>
+
+        </div>
+
+        <div class="search-suggestions">
+
+            <span>Try searching:</span>
+
+            <button>Class 12 Physics</button>
+            <button>Electrostatics</button>
+            <button>Biology</button>
+            <button>Organic Chemistry</button>
+
+        </div>
+
+        <div class="search-result" id="searchResult"></div>
+
+    </div>
+
+</div>
+
+<body>
+    <!-- ELECTRO STUDY LOADER -->
+
+<div id="siteLoader">
+
+    <div class="loader-content">
+
+        <div class="loader-logo">
+            <i class="fa-solid fa-bolt"></i>
+        </div>
+
+        <h2>Electro Study</h2>
+
+        <p>Loading your learning space...</p>
+
+        <div class="loader-line">
+            <span></span>
+        </div>
+
+        <small>Made for better learning</small>
+
+    </div>
+
+</div>
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+    <a href="#" class="brand">
+
+        <div class="brand-logo">
+            <i class="fa-solid fa-bolt"></i>
+        </div>
+
+        <div class="brand-text">
+            <h2>Electro<span>Study</span></h2>
+            <p>Learn. Practice. Achieve.</p>
+        </div>
+
+    </a>
+
+
+    <nav class="nav-links">
+
+        <a href="#home" class="active">Home</a>
+        <a href="#classes">Classes <i class="fa-solid fa-chevron-down"></i></a>
+        <a href="#subjects">Subjects</a>
+        <a href="#features">Features</a>
+        <a href="#resources">Resources</a>
+        <a href="#about">About</a>
+
+    </nav>
+
+
+    <div class="nav-actions">
+
+        <button class="nav-icon" id="themeBtn">
+            <i class="fa-solid fa-sun"></i>
+        </button>
+
+        <button class="nav-icon search-btn">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+
+        <button class="login-btn" id="loginBtn">
+    <i class="fa-regular fa-user"></i>
+    Login
+
+</button>
+        <a href="#classes" class="get-started">
+            Get Started
+            <i class="fa-solid fa-arrow-right"></i>
+        </a>
+
+        <button class="mobile-menu">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-background">
+
+        <div class="orb orb-one"></div>
+        <div class="orb orb-two"></div>
+
+        <div class="atom-decoration">
+            <i class="fa-solid fa-atom"></i>
+        </div>
+
+        <div class="book-decoration">
+            <i class="fa-solid fa-book-open"></i>
+        </div>
+
+    </div>
+
+
+    <div class="hero-content">
+
+        <div class="hero-badge">
+            <i class="fa-solid fa-star"></i>
+            Your Smart Learning Platform
+        </div>
+
+
+        <h1>
+            Learn Smarter.
+            <br>
+            <span>Achieve More.</span>
+        </h1>
+
+
+        <p class="hero-description">
+            Welcome to Electro Study — a modern learning platform
+            designed for students from Class 6 to 12.
+            Learn concepts, practice questions and track your progress.
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <a href="#classes" class="primary-btn">
+                Start Learning
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+            <a href="#features" class="outline-btn">
+                <i class="fa-solid fa-play"></i>
+                Explore Features
+            </a>
+
+        </div>
+
+
+        <div class="hero-stats">
+
+            <div class="stat">
+                <div class="stat-icon">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+
+                <div>
+                    <strong>6–12</strong>
+                    <span>Classes</span>
+                </div>
+            </div>
+
+
+            <div class="stat">
+                <div class="stat-icon">
+                    <i class="fa-solid fa-book"></i>
+                </div>
+
+                <div>
+                    <strong>50+</strong>
+                    <span>Topics</span>
+                </div>
+            </div>
+
+
+            <div class="stat">
+                <div class="stat-icon">
+                    <i class="fa-solid fa-file-lines"></i>
+                </div>
+
+                <div>
+                    <strong>100+</strong>
+                    <span>Questions</span>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= DASHBOARD ================= -->
+
+    <div class="dashboard-wrapper">
+
+        <div class="dashboard">
+
+            <div class="dashboard-header">
+
+                <div>
+                    <span>My Learning Dashboard</span>
+                    <h3>Welcome back, Student! 👋</h3>
+                </div>
+
+                <div class="profile-icon">
+                    <i class="fa-solid fa-user"></i>
+                    <b></b>
+                </div>
+
+            </div>
+
+
+            <div class="dashboard-progress">
+
+                <div class="progress-icon">
+                    <i class="fa-solid fa-book-open"></i>
+                </div>
+
+                <div class="progress-content">
+
+                    <div class="progress-title">
+                        <span>Overall Study Progress</span>
+                        <strong>72%</strong>
+                    </div>
+
+                    <div class="progress-bar">
+                        <div></div>
+                    </div>
+
+                    <small>
+                        Great job! Keep it up and achieve your goals.
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="dashboard-grid">
+
+                <div class="dash-card">
+
+                    <div class="dash-icon blue">
+                        <i class="fa-solid fa-book"></i>
+                    </div>
+
+                    <span>Topics Completed</span>
+
+                    <strong>36 <small>/ 50</small></strong>
+
+                    <p>This Month <i class="fa-solid fa-arrow-up"></i></p>
+
+                </div>
+
+
+                <div class="dash-card">
+
+                    <div class="dash-icon purple">
+                        <i class="fa-solid fa-bullseye"></i>
+                    </div>
+
+                    <span>Quizzes Taken</span>
+
+                    <strong>18</strong>
+
+                    <p>This Month <i class="fa-solid fa-arrow-up"></i></p>
+
+                </div>
+
+
+                <div class="dash-card">
+
+                    <div class="dash-icon orange">
+                        <i class="fa-solid fa-fire"></i>
+                    </div>
+
+                    <span>Current Streak</span>
+
+                    <strong>7 Days</strong>
+
+                    <p>Keep it going! <i class="fa-solid fa-arrow-up"></i></p>
+
+                </div>
+
+
+                <div class="dash-card">
+
+                    <div class="dash-icon cyan">
+                        <i class="fa-solid fa-clock"></i>
+                    </div>
+
+                    <span>Study Time</span>
+
+                    <strong>12h 45m</strong>
+
+                    <p>This Week <i class="fa-solid fa-arrow-right"></i></p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="floating-notification notification-one">
+
+            <div class="notification-icon">
+                <i class="fa-solid fa-check"></i>
+            </div>
+
+            <div>
+                <strong>Topic Completed</strong>
+                <small>Great progress!</small>
+            </div>
+
+        </div>
+
+
+        <div class="floating-notification notification-two">
+
+            <div class="notification-icon fire">
+                <i class="fa-solid fa-fire"></i>
+            </div>
+
+            <div>
+                <strong>7 Day Streak</strong>
+                <small>Keep learning!</small>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CLASSES ================= -->
+
+<section class="classes-section section" id="classes">
+
+    <div class="section-heading">
+
+        <div>
+
+            <span class="section-label">
+                <i class="fa-solid fa-book-open"></i>
+                EXPLORE CLASSES
+            </span>
+
+            <h2>Choose Your <span>Class</span></h2>
+
+        </div>
+
+        <p>
+            Select your class and start your learning journey
+            with organized study material.
+        </p>
+
+    </div>
+
+
+    <div class="class-grid">
+
+        <a href="pages/class6.html" class="class-card green">
+            <div class="class-icon">
+                <i class="fa-solid fa-backpack"></i>
+            </div>
+            <strong>Class 6</strong>
+            <span>Explore the basics</span>
+            <b><i class="fa-solid fa-arrow-right"></i></b>
+        </a>
+
+
+        <a href="pages/class7.html" class="class-card blue">
+            <div class="class-icon">
+                <i class="fa-solid fa-book"></i>
+            </div>
+            <strong>Class 7</strong>
+            <span>Build strong concepts</span>
+            <b><i class="fa-solid fa-arrow-right"></i></b>
+        </a>
+
+
+        <a href="pages/class8.html" class="class-card purple">
+            <div class="class-icon">
+                <i class="fa-solid fa-atom"></i>
+            </div>
+            <strong>Class 8</strong>
+            <span>Learn & understand</span>
+            <b><i class="fa-solid fa-arrow-right"></i></b>
+        </a>
+
+
+        <a href="pages/class9.html" class="class-card orange">
+            <div class="class-icon">
+                <i class="fa-solid fa-pen"></i>
+            </div>
+            <strong>Class 9</strong>
+            <span>Strengthen your base</span>
+            <b><i class="fa-solid fa-arrow-right"></i></b>
+        </a>
+
+
+        <a href="pages/class10.html" class="class-card cyan">
+            <div class="class-icon">
+                <i class="fa-solid fa-trophy"></i>
+            </div>
+            <strong>Class 10</strong>
+            <span>Prepare with confidence</span>
+            <b><i class="fa-solid fa-arrow-right"></i></b>
+        </a>
+
+
+        <a href="pages/class11.html" class="class-card pink">
+            <div class="class-icon">
+                <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+            <strong>Class 11</strong>
+            <span>Master advanced concepts</span>
+            <b><i class="fa-solid fa-arrow-right"></i></b>
+        </a>
+
+
+        <a href="pages/class12.html" class="class-card class12">
+            <div class="class-icon">
+                <i class="fa-solid fa-rocket"></i>
+            </div>
+            <strong>Class 12</strong>
+            <span>Board & competitive preparation</span>
+            <b><i class="fa-solid fa-arrow-right"></i></b>
+
+            <em>★</em>
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SUBJECTS ================= -->
+
+<section class="subjects-section section" id="subjects">
+
+    <div class="center-heading">
+
+        <span class="section-label">
+            LEARN BY SUBJECT
+        </span>
+
+        <h2>Everything You Need To <span>Learn</span></h2>
+
+        <p>
+            Study important subjects with organized notes,
+            questions and resources.
+        </p>
+
+    </div>
+
+
+    <div class="subject-grid">
+
+        <div class="subject-card">
+            <div class="subject-icon physics">
+                <i class="fa-solid fa-atom"></i>
+            </div>
+            <h3>Physics</h3>
+            <p>Concepts, formulas & numericals</p>
+            <a href="#">Explore <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+
+        <div class="subject-card">
+            <div class="subject-icon chemistry">
+                <i class="fa-solid fa-flask"></i>
+            </div>
+            <h3>Chemistry</h3>
+            <p>Reactions, concepts & practice</p>
+            <a href="#">Explore <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+
+        <div class="subject-card">
+            <div class="subject-icon biology">
+                <i class="fa-solid fa-dna"></i>
+            </div>
+            <h3>Biology</h3>
+            <p>Diagrams, concepts & revision</p>
+            <a href="#">Explore <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+
+        <div class="subject-card">
+            <div class="subject-icon maths">
+                <i class="fa-solid fa-square-root-variable"></i>
+            </div>
+            <h3>Mathematics</h3>
+            <p>Formulas, examples & practice</p>
+            <a href="#">Explore <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FEATURES ================= -->
+
+<section class="features-section section" id="features">
+
+    <div class="center-heading">
+
+        <span class="section-label">WHY ELECTRO STUDY?</span>
+
+        <h2>Built For <span>Better Learning</span></h2>
+
+        <p>
+            Powerful tools designed to make studying easier,
+            faster and more organized.
+        </p>
+
+    </div>
+
+
+    <div class="feature-grid">
+
+        <div class="feature-card">
+            <i class="fa-solid fa-book feature-icon"></i>
+            <h3>Smart Notes</h3>
+            <p>Organized study material for quick revision.</p>
+        </div>
+
+        <div class="feature-card">
+            <i class="fa-solid fa-brain feature-icon"></i>
+            <h3>Practice Quizzes</h3>
+            <p>Test your knowledge with interactive questions.</p>
+        </div>
+
+        <div class="feature-card">
+            <i class="fa-solid fa-chart-line feature-icon"></i>
+            <h3>Track Progress</h3>
+            <p>Monitor your learning and improve every day.</p>
+        </div>
+
+        <div class="feature-card">
+            <i class="fa-solid fa-clock feature-icon"></i>
+            <h3>Study Timer</h3>
+            <p>Focused sessions to manage your study time.</p>
+        </div>
+
+        <div class="feature-card">
+            <i class="fa-solid fa-magnifying-glass feature-icon"></i>
+            <h3>Quick Search</h3>
+            <p>Find topics and resources instantly.</p>
+        </div>
+
+        <div class="feature-card">
+            <i class="fa-solid fa-mobile-screen feature-icon"></i>
+            <h3>Responsive</h3>
+            <p>Perfect experience on every screen.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CTA ================= -->
+
+<section class="cta-section" id="resources">
+
+    <div>
+        <span>START YOUR JOURNEY</span>
+        <h2>Make Every Study Session Count.</h2>
+        <p style="color: rgb(92, 164, 247);">Learn consistently. Practice regularly. Achieve your goals.</p>
+    </div>
+
+    <a href="#classes" class="primary-btn">
+        Explore Classes
+        <i class="fa-solid fa-arrow-right"></i>
+    </a>
+
+</section>
+
+<!-- ================= CREATOR ================= -->
+
+<div class="creator-section">
+
+    <div class="creator-info">
+
+        <div class="creator-avatar">
+            <i class="fa-solid fa-bolt"></i>
+        </div>
+
+        <div>
+            <span class="creator-label">CREATED & DESIGNED BY</span>
+
+            <h3>Ankur Gurjar</h3>
+
+            <p>
+                Founder & Creator of Electro Study
+            </p>
+        </div>
+
+    </div>
+
+
+    <div class="social-section">
+
+        <span>CONNECT WITH US</span>
+
+        <div class="social-icons">
+
+            <!-- Email -->
+            <a href="mailto:electrostudyz@gmail.com"
+               aria-label="Email"
+               title="Email">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+
+
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/Electro_Study_/"
+               target="_blank"
+               aria-label="Instagram"
+               title="Instagram">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+
+
+            <!-- Facebook -->
+            <a href="https://www.facebook.com/Electro_Study_"
+               target="_blank"
+               aria-label="Facebook"
+               title="Facebook">
+                <i class="fa-brands fa-facebook-f"></i>
+            </a>
+
+
+            <!-- Creator Website -->
+            <a href="#"
+               aria-label="Creator Website"
+               title="Creator Website">
+                <i class="fa-solid fa-globe"></i>
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================= FOOTER ================= -->
+
+<footer id="about">
+
+    <div class="footer-content">
+
+        <div class="footer-brand">
+
+            <div class="brand">
+
+                <div class="brand-logo">
+                    <i class="fa-solid fa-bolt"></i>
+                </div>
+
+                <div class="brand-text">
+                    <h2>Electro<span>Study</span></h2>
+                    <p>Learn. Practice. Achieve.</p>
+                </div>
+
+            </div>
+
+            <p>
+                A student-focused learning platform created
+                to make education simple, organized and engaging.
+            </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <h3>Platform</h3>
+            <a href="#home">Home</a>
+            <a href="#classes">Classes</a>
+            <a href="#subjects">Subjects</a>
+            <a href="#features">Features</a>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <h3>Resources</h3>
+            <a href="#">Notes</a>
+            <a href="#">Quizzes</a>
+            <a href="#">Study Timer</a>
+            <a href="#">Progress</a>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <span>© 2026 Electro Study. All Rights Reserved.</span>
+
+        <span>
+            Made with <b>♥</b> by <strong>Ankur Gurjar</strong>
+        </span>
+
+    </div>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
